@@ -37,7 +37,7 @@ public class IdleState implements State {
 
     @Override
     public void chooseProduct(VendingMachine machine, int codeNumber) throws Exception{
-        throw new Exception("you can not choose Product in idle state");
+        throw new Exception("you can not choose Main.java in idle state");
     }
 
     @Override

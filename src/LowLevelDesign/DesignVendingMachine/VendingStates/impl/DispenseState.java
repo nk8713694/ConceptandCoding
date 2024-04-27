@@ -48,7 +48,7 @@ public class DispenseState implements State {
 
     @Override
     public Item dispenseProduct(VendingMachine machine, int codeNumber) throws Exception{
-        System.out.println("Product has been dispensed");
+        System.out.println("Main.java has been dispensed");
         Item item = machine.getInventory().getItem(codeNumber);
         machine.getInventory().updateSoldOutItem(codeNumber);
         machine.setVendingMachineState(new IdleState(machine));

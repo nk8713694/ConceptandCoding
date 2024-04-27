@@ -1,6 +1,6 @@
-package LowLevelDesign.LLDSnakeLadder;
+package LLDSnakeLadder;
 
 public class Cell {
-    Jump jump;
+    LowLevelDesign.LLDSnakeLadder.Jump jump;
     //getters and setters
 }

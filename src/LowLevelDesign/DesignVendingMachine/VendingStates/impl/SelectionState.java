@@ -43,7 +43,7 @@ public class SelectionState implements State {
 
         //3. compare product price and amount paid by user
         if(paidByUser < item.getPrice()) {
-            System.out.println("Insufficient Amount, Product you selected is for price: " + item.getPrice() + " and you paid: " + paidByUser);
+            System.out.println("Insufficient Amount, Main.java you selected is for price: " + item.getPrice() + " and you paid: " + paidByUser);
             refundFullMoney(machine);
             throw new Exception("insufficient amount");
         }

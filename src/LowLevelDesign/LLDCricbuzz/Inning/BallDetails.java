@@ -1,12 +1,5 @@
-package LowLevelDesign.LLDCricbuzz.Inning;
+package LLDCricbuzz.Inning;
 
-import LowLevelDesign.LLDCricBuzz.Match.ScoreUpdater.BattingScoreUpdater;
-import LowLevelDesign.LLDCricBuzz.Match.ScoreUpdater.BowlingScoreUpdater;
-import LowLevelDesign.LLDCricBuzz.Match.ScoreUpdater.ScoreUpdaterObserver;
-import LowLevelDesign.LLDCricBuzz.Match.Team.Player.PlayerDetails;
-import LowLevelDesign.LLDCricBuzz.Match.Team.Team;
-import LowLevelDesign.LLDCricBuzz.Match.Team.Wicket;
-import LowLevelDesign.LLDCricBuzz.Match.Team.WicketType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +7,12 @@ import java.util.List;
 public class BallDetails {
 
     public int ballNumber;
-    public BallType ballType;
-    public RunType runType;
-    public PlayerDetails playedBy;
-    public PlayerDetails bowledBy;
-    public Wicket wicket;
-    List<ScoreUpdaterObserver> scoreUpdaterObserverList = new ArrayList<>();
+    public LowLevelDesign.LLDCricbuzz.Inning.BallType ballType;
+    public LowLevelDesign.LLDCricbuzz.Inning.RunType runType;
+    public LowLevelDesign.LLDCricbuzz.Team.Player.PlayerDetails playedBy;
+    public LowLevelDesign.LLDCricbuzz.Team.Player.PlayerDetails bowledBy;
+    public LowLevelDesign.LLDCricbuzz.Team.Wicket wicket;
+    List<LowLevelDesign.LLDCricbuzz.ScoreUpdater.ScoreUpdaterObserver> scoreUpdaterObserverList = new ArrayList<>();
 
     public BallDetails(int ballNumber) {
         this.ballNumber = ballNumber;
@@ -36,15 +29,15 @@ public class BallDetails {
 
         //wicket or no wicket
         if (isWicketTaken()) {
-            runType = RunType.ZERO;
+            runType = LowLevelDesign.LLDCricbuzz.Inning.RunType.ZERO;
             //considering only BOLD
-            wicket = new Wicket(WicketType.BOLD, bowlingTeam.getCurrentBowler(), over,this);
+            wicket = new LowLevelDesign.LLDCricbuzz.Team.Wicket(LowLevelDesign.LLDCricbuzz.Team.WicketType.BOLD, bowlingTeam.getCurrentBowler(), over,this);
             //making only striker out for now
             battingTeam.setStriker(null);
         } else {
             runType = getRunType();
 
-            if(runType == RunType.ONE || runType == RunType.THREE) {
+            if(runType == RunType.ONE || runType == LowLevelDesign.LLDCricbuzz.Inning.RunType.THREE) {
                 //swap striket and non striker
                 PlayerDetails temp = battingTeam.getStriker();
                 battingTeam.setStriker(battingTeam.getNonStriker());
